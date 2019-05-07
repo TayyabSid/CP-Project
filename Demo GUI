@@ -1,0 +1,5 @@
+from tkinter import *
+window = Tk()
+label = Label(window, text="Hi people..Its a demo for gui")
+label.pack()
+window.mainloop()
