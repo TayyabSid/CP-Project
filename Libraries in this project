@@ -1,0 +1,5 @@
+contexlib (to resolve pygame error)
+pygame (to import mixer)
+mixer (to play music)
+tkinter (For GUI)
+datetime (date time purpose)
