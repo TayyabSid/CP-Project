@@ -1,0 +1,38 @@
+import contextlib
+with contextlib.redirect_stdout(None):
+    from pygame import mixer
+    import time
+
+def sound():
+	mixer.init()
+	mixer.music.load("D:\marimba.mp3")
+
+def alarm():
+	hor=int(input("Enter Hour :: "))
+	minn=int(input("Enter Minute :: "))
+	secn=int(input("Enter Seconds :: "))
+
+	n = 5
+
+	print ("Alarm is set for "+str(hor)+"H-"+str(minn)+"M-"+str(secn)+"S")
+	while True:
+		if(time.localtime().tm_hour==hor and time.localtime().tm_min==minn and time.localtime().tm_sec==secn):
+			print("TIME FOR YOUR TASK!!!!")
+			break
+	sound()
+	while(n>0):
+		mixer.music.play()
+		time.sleep(1)
+		n=n-1
+
+	sn=input("Press S for snooze OR E for exit :> ")
+	if sn=="s":
+		n=3
+		time.sleep(100)
+		while n>0:
+			mixer.music.play()
+			time.sleep(1)
+	else:
+		exit()
+			
+alarm()
